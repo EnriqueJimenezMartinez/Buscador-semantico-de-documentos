@@ -1,91 +1,92 @@
-Aplicación de Validación de JSON con Gradio y Docker
+# 📄 Validador de JSON con Gradio y Docker
 
-Esta aplicación permite subir únicamente ficheros JSON, que serán validados e interpretados mediante un modelo simple en Python.
-Incluye una interfaz web creada con Gradio y se ejecuta como un servicio Docker.
+Esta aplicación permite subir archivos **JSON**, que serán validados e interpretados mediante un modelo simple en Python.  
+Incluye una interfaz web creada con **Gradio** y puede ejecutarse dentro de un contenedor **Docker**.
 
-📁 Estructura del proyecto
-📦 proyecto
- ├── app.py
- ├── Dockerfile
- ├── requirements.txt
- ├── samples/
- │     ├── grupo_musical.json
- │     ├── analitica_sangre.json
- │     └── receta.json
+---
 
-🧠 Descripción de la aplicación
+## ⚙️ Requisitos
 
-La aplicación:
+Para ejecutar el proyecto necesitas tener instalado:
 
-Acepta únicamente archivos JSON
+- Python 3.8 o superior
+- Librerías principales:
+  - `gradio`
+- Librerías estándar de Python (no requieren instalación):
+  - `os`
+  - `uuid`
+  - `json`
 
-Intenta cargarlos con json.load()
+---
 
-Muestra el contenido o los errores de validación
+## 🚀 Uso
 
-Funciona desde una interfaz web sencilla en Gradio
+### Sin Docker
 
-Está preparada para ejecutarse en contenedor Docker
+1. Clona el repositorio:
 
-El código usa módulos estándar de Python como uuid y os, que NO necesitan instalarse, ya que vienen incluidos en Python por defecto.
+```bash
+git clone <URL-del-repositorio>
+Accede a la carpeta del proyecto:
 
-📦 Instalación sin Docker (opcional)
+cd proyecto
+Instala las dependencias:
+
 pip install -r requirements.txt
+Ejecuta la aplicación:
+
 python app.py
-
-
-La aplicación abrirá una interfaz Gradio en:
+La interfaz web de Gradio se abrirá en:
 
 http://127.0.0.1:7860
+````
+---
 
-🐳 Ejecución usando Docker
-1️⃣ Construir la imagen
-
-Desde la carpeta del proyecto:
+### Con Docker
+```bash
+Construir la imagen:
 
 docker build -t validador-json .
+Ejecutar el contenedor:
 
-2️⃣ Ejecutar el contenedor
 docker run -p 7860:7860 validador-json
-
-
 La aplicación quedará disponible en:
 
 http://localhost:7860
-
 📂 Uso dentro de la aplicación
+Abre la interfaz web generada por Gradio.
 
-Abre la interfaz web generada por Gradio
-
-Sube uno de los ficheros JSON situados en la carpeta samples
-
+Sube uno de los archivos JSON situados en la carpeta samples.
+```
 La aplicación mostrará:
 
-El contenido cargado si es válido
+El contenido cargado si es válido.
 
-Un mensaje de error si no es un JSON válido
+Un mensaje de error si no es un JSON válido.
 
-📄 Dependencias
+🗂️ Estructura del proyecto
+```bash
+proyecto/
+├── app.py
+├── Dockerfile
+├── requirements.txt
+├── samples/
+│   ├── grupo_musical.json
+│   ├── analitica_sangre.json
+│   └── receta.json
 
-El archivo requirements.txt incluye:
+```
+## 📌 Objetivos del proyecto
+Validar archivos JSON de manera sencilla y rápida.
 
-gradio
+Mostrar errores claros en caso de JSON inválido.
 
+Proporcionar una interfaz web fácil de usar con Gradio.
 
-Las librerías:
+Facilitar la ejecución en cualquier sistema usando Docker.
 
-uuid
+## 📜 Licencia
+Este proyecto está bajo la licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente, siempre citando la fuente.
 
-os
-
-json
-
-NO necesitan añadirse porque forman parte de la biblioteca estándar de Python.
-
-🤖 Tecnologías utilizadas
-
-Python
-
-Gradio
-
-Docker
+## 👨‍💻 Autor
+Enrique Jiménez Martínez
