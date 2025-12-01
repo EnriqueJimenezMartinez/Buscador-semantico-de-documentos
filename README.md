@@ -26,10 +26,10 @@ Para ejecutar el proyecto necesitas tener instalado:
 1. Clona el repositorio:
 
 ```bash
-git clone <URL-del-repositorio>
-Accede a la carpeta del proyecto:
-
-cd proyecto
+git clone 
+Accede a la carpeta del proyecto: 
+https://github.com/EnriqueJimenezMartinez/Buscador-semantico-de-documentos.git
+cd Buscador-semantico-de-documentos
 Instala las dependencias:
 
 pip install -r requirements.txt
