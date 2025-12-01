@@ -27,8 +27,8 @@ Para ejecutar el proyecto necesitas tener instalado:
 
 ```bash
 git clone 
-Accede a la carpeta del proyecto: 
 https://github.com/EnriqueJimenezMartinez/Buscador-semantico-de-documentos.git
+Accede a la carpeta del proyecto: 
 cd Buscador-semantico-de-documentos
 Instala las dependencias:
 
