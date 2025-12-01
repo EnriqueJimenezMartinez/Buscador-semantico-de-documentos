@@ -1,0 +1,17 @@
+{
+  "recipe_name": "Creamy Garlic Chicken",
+  "servings": 4,
+  "ingredients": [
+    { "item": "Chicken breasts", "quantity": "4 pieces" },
+    { "item": "Garlic cloves", "quantity": "5 minced" },
+    { "item": "Heavy cream", "quantity": "200 ml" },
+    { "item": "Butter", "quantity": "2 tbsp" },
+    { "item": "Parsley", "quantity": "1 tbsp chopped" }
+  ],
+  "steps": [
+    "Season the chicken and sear it in a skillet with butter.",
+    "Add minced garlic and cook for one minute.",
+    "Pour heavy cream and let it simmer until the sauce thickens.",
+    "Garnish with parsley and serve warm."
+  ]
+}

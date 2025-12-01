@@ -1,0 +1,17 @@
+{
+  "patient_id": "A-99321",
+  "patient_name": "Emily Johnson",
+  "date": "2025-01-28",
+  "results": {
+    "hemoglobin_g_dl": 13.2,
+    "white_blood_cells_k_ul": 6.8,
+    "platelets_k_ul": 240,
+    "glucose_mg_dl": 95,
+    "cholesterol_mg_dl": {
+      "total": 172,
+      "hdl": 55,
+      "ldl": 98
+    }
+  },
+  "doctor_notes": "The results are within normal ranges. Recommend maintaining current diet and exercise routine."
+}
