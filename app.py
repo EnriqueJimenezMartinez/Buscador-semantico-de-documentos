@@ -5,7 +5,7 @@ import os
 import uuid
 cliente = chromadb.Client()
 coleccion = cliente.create_collection(name="documents")
-
+# Función de recogida de ficheros
 def cargar_jsons_iniciales():
     carpeta = "samples"
     archivos = ["grupo_musical.json", "analitica_sangre.json", "receta.json"]
@@ -42,8 +42,8 @@ def subir_ficheros_json(lista_ficheros):
 
     for fichero in lista_ficheros:
         nombre = getattr(fichero, "name", "")
-        # Comprobar extensión .json
-        if not nombre.lower().endswith(".json"):
+        # Comprobacion extensión .json
+        if not nombre.lower().endswith(".json"): #comprobacion formato
             errores.append(f"{nombre} -> formato no permitido (solo .json)")
             continue
 
@@ -71,16 +71,17 @@ def subir_ficheros_json(lista_ficheros):
     return mensaje
 
 def consultar_chromadb(pregunta):
+    # Comprobamos que la pregunta no esté vacía
     if not pregunta or pregunta.strip() == "":
         return "Debes escribir una pregunta."
 
     try:
         resultado = coleccion.query(
             query_texts=[pregunta],
-            n_results=1
+            n_results=1 # Solo nos interesa el documento más relevante
         )
 
-        # resultado["documents"] = [[doc1, doc2, ...], ...]
+        # ejemplo : resultado["documents"] = [[doc1, doc2, ...], ...]
         docs = resultado.get("documents", [[]])
         if docs and len(docs[0]) > 0 and docs[0][0] is not None:
             return docs[0][0]
@@ -89,11 +90,11 @@ def consultar_chromadb(pregunta):
 
     except Exception as e:
         return f"Error en la consulta: {e}"
-
+# Creación de la interfaz gráfica con Gradio
 with gr.Blocks(title="Consulta de JSON con ChromaDB") as interfaz:
 
     gr.Markdown("# 🔎 Consulta semántica (solo JSON)")
-
+    # Sistema de pestañas
     with gr.Tabs():
 
         with gr.Tab("Subir ficheros (.json únicamente)"):
@@ -103,6 +104,7 @@ with gr.Blocks(title="Consulta de JSON con ChromaDB") as interfaz:
             )
             boton_subir = gr.Button("Añadir a la colección")
             salida_subida = gr.Textbox(label="Estado de la operación")
+            # Al pulsar el botón se ejecuta la función de subida
             boton_subir.click(subir_ficheros_json, inputs=entrada_archivos, outputs=salida_subida)
 
         with gr.Tab("Consulta"):
@@ -110,6 +112,6 @@ with gr.Blocks(title="Consulta de JSON con ChromaDB") as interfaz:
             boton_buscar = gr.Button("Buscar documento más relevante")
             salida_respuesta = gr.Textbox(label="Documento más relevante")
             boton_buscar.click(consultar_chromadb, inputs=entrada_pregunta, outputs=salida_respuesta)
-
+# Punto de entrada del programa
 if __name__ == "__main__":
-    interfaz.launch()
+    interfaz.launch() # Lanza la aplicación web
